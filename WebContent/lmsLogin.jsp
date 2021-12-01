@@ -8,7 +8,7 @@
 <meta name="viewport" content="width-device-width", initial-scale="1">
 <!-- 루트 폴더에 부트스트랩을 참조하는 링크 -->
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>게시판 글쓰기</title>
+<title>LMS 로그인 화면</title>
 </head>
 <body>
 	<%
@@ -36,8 +36,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a></li>
-				<li><a href="lmsLogin.jsp">LMS 로그인</a></li>
-				<li class="active"><a href="bbs.jsp">게시판</a></li>
+				<li class="active"><a href="lmsLogin.jsp">LMS 로그인</a></li>
+				<li><a href="bbs.jsp">게시판</a></li>
 				<li><a href="https://lms.sungshin.ac.kr/ilos/main/main_form.acl">교육시스템</a></li>
 				<li><a href="https://portal.sungshin.ac.kr/sso/login.jsp?destination=/portal/ssu/stuMain">포탈시스템</a></li>
 			</ul>
@@ -77,36 +77,28 @@
 			<%
 				}
 			%>
-		</div>
-	</nav>
-	<!-- 네비게이션 영역 끝 -->
-	
-	<!-- 게시판 글쓰기 양식 영역 시작 -->
-	<div class="container">
-		<div class="row">
-			<form method="post" action="writeAction.jsp">
-				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-					<thead>
-						<tr>
-							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
-						</tr>
-						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- 글쓰기 버튼 생성 -->
-				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
-			</form>
-		</div>
+    	</div>
+    </nav>       
+    
+    <!-- LMS 로그인 양식 -->
+	<div class="container">		<!-- 하나의 영역 생성 -->
+		<div class="col-lg-4">	<!-- 영역 크기 -->
+			<!-- 점보트론은 특정 컨텐츠, 정보를 두드러지게 하기 위한 큰 박스 -->
+			<div class="jumbotron" style="padding-top: 20px;">
+				<form method="post" action="lmsLoginAction.jsp">
+					<h3 style="text-align: center;">LMS 로그인 화면</h3>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">
+					</div>
+					<input type="submit" class="btn btn-primary form-control" value="로그인">
+				</form>
+			</div>
+		</div>	
 	</div>
-	<!-- 게시판 글쓰기 양식 영역 끝 -->
-	
+    
 	<!-- 부트스트랩 참조 영역 -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
